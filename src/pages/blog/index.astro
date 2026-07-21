@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogIndexContent from '../../components/pages/BlogIndexContent.astro';
+import { getDictionary } from '../../i18n';
+
+const lang = 'pt' as const;
+const dict = getDictionary(lang);
+---
+
+<BaseLayout lang={lang} routeKey="blog" title={dict.meta.blog.title} description={dict.meta.blog.description}>
+  <BlogIndexContent lang={lang} />
+</BaseLayout>

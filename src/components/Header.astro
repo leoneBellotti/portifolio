@@ -1,0 +1,79 @@
+---
+import { route, alternateLocalePath, type RouteKey } from '../i18n/routes';
+import { getDictionary } from '../i18n';
+import type { Locale } from '../site.config';
+
+interface Props {
+  lang: Locale;
+  routeKey: RouteKey;
+}
+
+const { lang, routeKey } = Astro.props;
+const dict = getDictionary(lang);
+
+const navItems: { key: RouteKey; label: string }[] = [
+  { key: 'home', label: dict.nav.home },
+  { key: 'about', label: dict.nav.about },
+  { key: 'projects', label: dict.nav.projects },
+  { key: 'services', label: dict.nav.services },
+  { key: 'experience', label: dict.nav.experience },
+  { key: 'skills', label: dict.nav.skills },
+  { key: 'blog', label: dict.nav.blog },
+];
+
+const contactHref = route('contact', lang);
+const alt = alternateLocalePath(routeKey, lang);
+---
+
+<header class="sticky top-0 z-40 border-b border-subtle surface/95 backdrop-blur">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+      <a href={route('home', lang)} class="font-tech text-lg font-bold tracking-tight shrink-0">
+        Leone<span class="text-accent">.</span>Bellotti
+      </a>
+
+      <nav aria-label="primary" class="hidden lg:flex items-center gap-6 text-sm font-medium">
+        {navItems.map((item) => (
+          <a
+            href={route(item.key, lang)}
+            class:list={['hover:text-accent transition-colors', routeKey === item.key ? 'text-accent' : '']}
+            aria-current={routeKey === item.key ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-3">
+        <a href={alt.path} hreflang={alt.locale} class="tech-badge hover:text-accent hover:border-accent transition-colors">
+          {dict.common.languageSwitch}
+        </a>
+        <a href={contactHref} class="btn btn-primary">{dict.common.ctaContactMe}</a>
+      </div>
+
+      <input type="checkbox" id="nav-toggle" class="peer hidden" />
+      <label
+        for="nav-toggle"
+        class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-subtle cursor-pointer"
+        aria-label="menu"
+      >
+        <span class="font-tech text-lg" aria-hidden="true">☰</span>
+      </label>
+
+      <div class="hidden peer-checked:flex lg:hidden absolute left-0 right-0 top-16 surface border-b border-subtle flex-col gap-1 px-4 py-4">
+        {navItems.map((item) => (
+          <a
+            href={route(item.key, lang)}
+            class:list={['py-2 text-sm font-medium hover:text-accent', routeKey === item.key ? 'text-accent' : '']}
+          >
+            {item.label}
+          </a>
+        ))}
+        <div class="flex items-center gap-3 pt-3 mt-2 border-t border-subtle">
+          <a href={alt.path} hreflang={alt.locale} class="tech-badge">{dict.common.languageSwitch}</a>
+          <a href={contactHref} class="btn btn-primary flex-1 justify-center">{dict.common.ctaContactMe}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

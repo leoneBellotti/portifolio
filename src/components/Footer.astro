@@ -1,0 +1,50 @@
+---
+import { CONTACT, whatsappLink } from '../site.config';
+import { route } from '../i18n/routes';
+import { getDictionary } from '../i18n';
+import type { Locale } from '../site.config';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const year = new Date().getFullYear();
+const location = lang === 'pt' ? CONTACT.location : CONTACT.locationEn;
+---
+
+<footer class="border-t border-subtle mt-24">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12 grid gap-8 sm:grid-cols-3">
+    <div>
+      <p class="font-tech text-base font-bold">Leone<span class="text-accent">.</span>Bellotti</p>
+      <p class="text-sm text-muted mt-2">{dict.footer.tagline}</p>
+      <p class="text-sm text-muted mt-4 font-tech">{location}</p>
+    </div>
+
+    <div class="text-sm">
+      <p class="font-medium mb-2">{dict.nav.contact}</p>
+      <ul class="space-y-1 text-muted">
+        <li><a class="hover:text-accent" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+        <li><a class="hover:text-accent" href={whatsappLink()} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a class="hover:text-accent" href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a class="hover:text-accent" href={CONTACT.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+
+    <div class="text-sm">
+      <p class="font-medium mb-2">{dict.nav.projects}</p>
+      <ul class="space-y-1 text-muted">
+        <li><a class="hover:text-accent" href={route('projects', lang)}>{dict.nav.projects}</a></li>
+        <li><a class="hover:text-accent" href={route('services', lang)}>{dict.nav.services}</a></li>
+        <li><a class="hover:text-accent" href={route('experience', lang)}>{dict.nav.experience}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-subtle">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-6 text-xs text-muted flex flex-col sm:flex-row gap-2 sm:justify-between">
+      <p>&copy; {year} Leone Bellotti. {dict.footer.rights}</p>
+    </div>
+  </div>
+</footer>

@@ -1,43 +1,45 @@
-# Astro Starter Kit: Minimal
+# Portfólio — Leone Bellotti
 
-```sh
-npm create astro@latest -- --template minimal
+Site pessoal de portfólio profissional. Requisitos e conteúdo aprovado vivem em [PORTFOLIO_START.md](./PORTFOLIO_START.md) — esse arquivo é a fonte de verdade; qualquer mudança de conteúdo/escopo deve ser refletida lá primeiro.
+
+## Stack
+
+Astro 7 + Vue (ilhas de interatividade) + Tailwind CSS v4. Site 100% estático (sem servidor/adaptador), i18n nativo do Astro (pt na raiz, en em `/en/`), fontes self-hosted (`@fontsource`).
+
+## Estrutura
+
+```
+src/
+  site.config.ts     # domínio, contatos, chaves de formulário/analytics — config central
+  i18n/
+    types.ts          # tipos do dicionário de conteúdo
+    pt.ts / en.ts      # todo o texto do site, por idioma
+    routes.ts          # mapa de rotas por idioma (slugs distintos pt/en)
+  layouts/BaseLayout.astro
+  components/          # Header, Footer, cards, TechBadgeList, ContactForm.vue...
+  components/pages/     # conteúdo de cada página, parametrizado por `lang`
+  pages/                # rotas pt (raiz) — arquivos finos que só montam layout + conteúdo
+  pages/en/             # rotas en
+  seo.ts                # JSON-LD (Person, ProfilePage, CreativeWork)
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Comandos
 
-## 🚀 Project Structure
+| Comando | Ação |
+|---|---|
+| `npm run dev` | Servidor local em `localhost:4321` |
+| `npm run build` | Build de produção em `./dist/` |
+| `npm run preview` | Preview do build de produção |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Pendências antes de publicar
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Ver seção 15 do `PORTFOLIO_START.md` para a lista completa. Resumo do que falta configurar em `src/site.config.ts` e correlatos:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Domínio**: `SITE_URL` está com um placeholder (`leonebellotti.com.br`) — trocar quando o domínio for registrado.
+- **Formulário de contato**: `CONTACT_FORM_ENDPOINT` (e `CONTACT_FORM_ACCESS_KEY` se usar Web3Forms) estão vazios — o formulário fica desabilitado (mostra só os canais alternativos) até serem preenchidos.
+- **Agenda de reuniões**: `SCHEDULING_URL` vazio (Calendly/Cal.com).
+- **Analytics**: `CF_ANALYTICS_TOKEN` vazio (Cloudflare Web Analytics).
+- **Currículo em PDF**: os botões apontam para `/cv/leone-bellotti-cv-pt.pdf` e `-en.pdf`, mas os arquivos ainda não existem em `public/cv/`.
+- **WhatsApp**: confirmar se deve ser link direto (`wa.me`, já implementado) ou só texto.
+- **Imagem de OG/social**: nenhuma foi criada ainda; as tags `og:image`/`twitter:image` só aparecem quando uma é passada explicitamente para `BaseLayout`.
+- **Screenshots dos projetos**: AtendePix, 3D&T Online e Sakkamusuko ainda não têm imagens reais nas páginas de case.

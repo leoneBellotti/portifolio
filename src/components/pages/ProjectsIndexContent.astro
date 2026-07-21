@@ -1,0 +1,37 @@
+---
+import type { Locale } from '../../site.config';
+import { getDictionary } from '../../i18n';
+import Section from '../Section.astro';
+import ProjectCard from '../ProjectCard.astro';
+import TechBadgeList from '../TechBadgeList.astro';
+import { route } from '../../i18n/routes';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const p = dict.projects;
+
+const projectRouteKeys = ['projectAtendepix', 'project3dt', 'projectSakkamusuko'] as const;
+---
+
+<Section title={p.title} intro={p.intro} titleAs="h1">
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {p.items.map((project, i) => (
+      <ProjectCard project={project} href={route(projectRouteKeys[i], lang)} viewCaseLabel={dict.common.viewCase} />
+    ))}
+  </div>
+</Section>
+
+<Section title={p.quickProjectsTitle} class="border-t border-subtle">
+  <div class="surface rounded-xl p-6 max-w-md">
+    <h3 class="text-lg font-bold">{p.cartoola.name}</h3>
+    <p class="mt-2 text-sm text-muted">{p.cartoola.description}</p>
+    <TechBadgeList items={p.cartoola.tech} class="mt-4" />
+    <a href={p.cartoola.repo} target="_blank" rel="noopener noreferrer" class="btn btn-secondary mt-5">
+      {dict.common.repository}
+    </a>
+  </div>
+</Section>

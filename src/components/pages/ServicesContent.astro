@@ -1,0 +1,32 @@
+---
+import type { Locale } from '../../site.config';
+import { getDictionary } from '../../i18n';
+import Section from '../Section.astro';
+import ServiceCard from '../ServiceCard.astro';
+import { route } from '../../i18n/routes';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const s = dict.services;
+---
+
+<Section title={s.title} intro={s.intro} titleAs="h1">
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {s.items.map((entry) => (
+      <ServiceCard
+        entry={entry}
+        problemLabel={s.problemLabel}
+        clientLabel={s.clientLabel}
+        deliverablesLabel={s.deliverablesLabel}
+        modelLabel={s.modelLabel}
+      />
+    ))}
+  </div>
+  <div class="mt-10">
+    <a href={route('contact', lang)} class="btn btn-primary">{dict.common.ctaContactMe}</a>
+  </div>
+</Section>

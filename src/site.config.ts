@@ -1,0 +1,51 @@
+// Central site configuration.
+// Change values here to update them everywhere on the site (domain, contacts, etc).
+
+/**
+ * Domain is NOT registered yet (see PORTFOLIO_START.md, section 15 - Pendências).
+ * Placeholder value below so canonical URLs / OG tags / sitemap all build correctly.
+ * Swap this single value once the real domain is registered.
+ */
+export const SITE_URL = 'https://leonebellotti.com.br';
+
+export const SITE_NAME = 'Leone Bellotti';
+
+export const DEFAULT_LOCALE = 'pt' as const;
+export const LOCALES = ['pt', 'en'] as const;
+export type Locale = (typeof LOCALES)[number];
+
+export const CONTACT = {
+  email: 'contato@leonebellotti.com.br',
+  // TODO: confirm before publishing whether WhatsApp should be a direct wa.me link or plain text (pendência).
+  whatsappNumber: '5511998436150',
+  whatsappDisplay: '+55 11 99843-6150',
+  linkedin: 'https://www.linkedin.com/in/leonebellotti',
+  github: 'https://github.com/leoneBellotti',
+  location: 'Santo André, São Paulo — atendimento 100% remoto',
+  locationEn: 'Santo André, São Paulo, Brazil — 100% remote',
+};
+
+export const whatsappLink = (message?: string) =>
+  `https://wa.me/${CONTACT.whatsappNumber}${message ? `?text=${encodeURIComponent(message)}` : ''}`;
+
+/**
+ * TODO: create a Web3Forms (https://web3forms.com) or Formspree account and paste the
+ * access key / form endpoint here. The contact form is wired to read this value and
+ * degrades to a disabled state with a mailto fallback when it's empty.
+ */
+export const CONTACT_FORM_ENDPOINT = '';
+
+/** Web3Forms-style access key, sent as a hidden field alongside the form submission (leave empty for Formspree-style endpoints). */
+export const CONTACT_FORM_ACCESS_KEY = '';
+
+/** TODO: paste a Calendly or Cal.com scheduling link here once created. */
+export const SCHEDULING_URL = '';
+
+/** TODO: paste the Cloudflare Web Analytics token here once the site/domain is set up in Cloudflare. */
+export const CF_ANALYTICS_TOKEN = '';
+
+/** Resume PDFs — not created yet (pendência). Links are wired but files must be added under /public/cv/. */
+export const RESUME_PATH = {
+  pt: '/cv/leone-bellotti-cv-pt.pdf',
+  en: '/cv/leone-bellotti-cv-en.pdf',
+};

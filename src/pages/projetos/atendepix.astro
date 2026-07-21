@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCaseStudy from '../../components/ProjectCaseStudy.astro';
+import { getDictionary } from '../../i18n';
+import { route } from '../../i18n/routes';
+import { SITE_URL } from '../../site.config';
+import { creativeWorkJsonLd } from '../../seo';
+
+const lang = 'pt' as const;
+const dict = getDictionary(lang);
+const project = dict.projects.items.find((p) => p.slug === 'atendepix')!;
+const canonicalUrl = new URL(route('projectAtendepix', lang), SITE_URL).toString();
+---
+
+<BaseLayout
+  lang={lang}
+  routeKey="projectAtendepix"
+  title={`${project.name} — ${dict.meta.projects.title}`}
+  description={project.tagline}
+  jsonLd={[creativeWorkJsonLd(project, canonicalUrl)]}
+>
+  <ProjectCaseStudy project={project} lang={lang} />
+</BaseLayout>

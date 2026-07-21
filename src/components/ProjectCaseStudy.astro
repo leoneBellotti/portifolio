@@ -1,0 +1,92 @@
+---
+import type { ProjectEntry } from '../i18n/types';
+import type { Locale } from '../site.config';
+import { getDictionary } from '../i18n';
+import { route } from '../i18n/routes';
+import TechBadgeList from './TechBadgeList.astro';
+
+interface Props {
+  project: ProjectEntry;
+  lang: Locale;
+}
+
+const { project, lang } = Astro.props;
+const dict = getDictionary(lang);
+const c = dict.common;
+const p = dict.projects;
+---
+
+<article class="bg-hero-grid border-b border-subtle">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 py-16">
+    <a href={route('projects', lang)} class="text-sm text-muted hover:text-accent">&larr; {c.backToProjects}</a>
+
+    <div class="mt-6 flex flex-wrap items-center gap-3">
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">{project.name}</h1>
+      <span class="status-badge">{project.statusBadge}</span>
+    </div>
+    <p class="mt-4 text-lg text-muted max-w-2xl">{project.tagline}</p>
+
+    {project.disclaimer && (
+      <p class="mt-6 surface border-l-4 border-l-accent rounded-lg px-4 py-3 text-sm text-muted max-w-2xl">
+        {project.disclaimer}
+      </p>
+    )}
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      {project.links.live && (
+        <a href={project.links.live} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          {c.liveSite}
+        </a>
+      )}
+      {project.links.repo && (
+        <a href={project.links.repo} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          {c.repository}
+        </a>
+      )}
+    </div>
+  </div>
+</article>
+
+<div class="mx-auto max-w-4xl px-4 sm:px-6 py-16 grid gap-12 sm:grid-cols-2">
+  <div>
+    <h2 class="font-tech text-xs uppercase tracking-wide text-accent">{p.problemLabel}</h2>
+    <p class="mt-2 prose-body text-muted">{project.problem}</p>
+  </div>
+  <div>
+    <h2 class="font-tech text-xs uppercase tracking-wide text-accent">{p.solutionLabel}</h2>
+    <p class="mt-2 prose-body text-muted">{project.solution}</p>
+  </div>
+</div>
+
+<div class="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
+  <h2 class="text-lg font-bold">{p.featuresLabel}</h2>
+  <ul class="mt-4 grid gap-2 sm:grid-cols-2 text-sm text-muted">
+    {project.features.map((feature) => (
+      <li class="flex gap-2">
+        <span class="text-accent" aria-hidden="true">▹</span>
+        {feature}
+      </li>
+    ))}
+  </ul>
+</div>
+
+<div class="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
+  <h2 class="font-tech text-xs uppercase tracking-wide text-accent">{c.myRole}</h2>
+  <p class="mt-2 prose-body text-muted">{project.role}</p>
+</div>
+
+<div class="mx-auto max-w-4xl px-4 sm:px-6 pb-16">
+  <h2 class="font-tech text-xs uppercase tracking-wide text-accent">{c.techUsed}</h2>
+  <TechBadgeList items={project.tech} class="mt-3" />
+</div>
+
+<div class="mx-auto max-w-4xl px-4 sm:px-6 pb-16 grid gap-12 sm:grid-cols-2">
+  <div>
+    <h2 class="font-tech text-xs uppercase tracking-wide text-accent">{c.challenges}</h2>
+    <p class="mt-2 prose-body text-muted">{project.challenges}</p>
+  </div>
+  <div>
+    <h2 class="font-tech text-xs uppercase tracking-wide text-accent">{c.status}</h2>
+    <p class="mt-2 prose-body text-muted">{project.status}</p>
+  </div>
+</div>

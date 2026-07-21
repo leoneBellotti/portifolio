@@ -1,0 +1,25 @@
+---
+import type { ProjectEntry } from '../i18n/types';
+import TechBadgeList from './TechBadgeList.astro';
+
+interface Props {
+  project: ProjectEntry;
+  href: string;
+  viewCaseLabel: string;
+}
+
+const { project, href, viewCaseLabel } = Astro.props;
+---
+
+<article class="surface rounded-xl p-6 flex flex-col h-full">
+  <div class="flex items-start justify-between gap-3">
+    <h3 class="text-xl font-bold">{project.name}</h3>
+    <span class="status-badge shrink-0">{project.statusBadge}</span>
+  </div>
+  <p class="mt-2 text-sm text-muted flex-1">{project.tagline}</p>
+  <TechBadgeList items={project.tech.slice(0, 6)} class="mt-4" />
+  <a href={href} class="btn btn-secondary mt-5 self-start">
+    {viewCaseLabel}
+    <span aria-hidden="true">&rarr;</span>
+  </a>
+</article>

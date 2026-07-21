@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_URL, SITE_NAME, CF_ANALYTICS_TOKEN } from '../site.config';
+import { route, type RouteKey } from '../i18n/routes';
+import type { Locale } from '../site.config';
+
+interface Props {
+  lang: Locale;
+  routeKey: RouteKey;
+  title: string;
+  description: string;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>[];
+}
+
+const { lang, routeKey, title, description, ogImage, jsonLd = [] } = Astro.props;
+
+const canonicalUrl = new URL(route(routeKey, lang), SITE_URL).toString();
+const alternatePt = new URL(route(routeKey, 'pt'), SITE_URL).toString();
+const alternateEn = new URL(route(routeKey, 'en'), SITE_URL).toString();
+const ogImageUrl = ogImage ? new URL(ogImage, SITE_URL).toString() : undefined;
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="pt" href={alternatePt} />
+    <link rel="alternate" hreflang="en" href={alternateEn} />
+    <link rel="alternate" hreflang="x-default" href={alternatePt} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={lang === 'pt' ? 'pt_BR' : 'en_US'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImageUrl && (
+      <>
+        <meta property="og:image" content={ogImageUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={ogImageUrl} />
+      </>
+    )}
+    {!ogImageUrl && <meta name="twitter:card" content="summary" />}
+
+    {jsonLd.map((entry) => (
+      <script type="application/ld+json" set:html={JSON.stringify(entry)} is:inline />
+    ))}
+
+    {CF_ANALYTICS_TOKEN && (
+      <script
+        is:inline
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={`{"token": "${CF_ANALYTICS_TOKEN}"}`}
+      />
+    )}
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a href="#main-content" class="skip-link">
+      {lang === 'pt' ? 'Pular para o conteúdo' : 'Skip to content'}
+    </a>
+    <Header lang={lang} routeKey={routeKey} />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

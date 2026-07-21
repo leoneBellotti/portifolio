@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ExperienceContent from '../components/pages/ExperienceContent.astro';
+import { getDictionary } from '../i18n';
+
+const lang = 'pt' as const;
+const dict = getDictionary(lang);
+---
+
+<BaseLayout lang={lang} routeKey="experience" title={dict.meta.experience.title} description={dict.meta.experience.description}>
+  <ExperienceContent lang={lang} />
+</BaseLayout>

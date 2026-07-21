@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProjectsIndexContent from '../../../components/pages/ProjectsIndexContent.astro';
+import { getDictionary } from '../../../i18n';
+
+const lang = 'en' as const;
+const dict = getDictionary(lang);
+---
+
+<BaseLayout lang={lang} routeKey="projects" title={dict.meta.projects.title} description={dict.meta.projects.description}>
+  <ProjectsIndexContent lang={lang} />
+</BaseLayout>

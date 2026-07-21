@@ -1,0 +1,75 @@
+---
+import type { Locale } from '../../site.config';
+import { getDictionary } from '../../i18n';
+import Section from '../Section.astro';
+import ContactForm from '../ContactForm.vue';
+import {
+  CONTACT,
+  CONTACT_FORM_ENDPOINT,
+  CONTACT_FORM_ACCESS_KEY,
+  SCHEDULING_URL,
+  RESUME_PATH,
+  whatsappLink,
+} from '../../site.config';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const c = dict.contact;
+const location = lang === 'pt' ? CONTACT.location : CONTACT.locationEn;
+---
+
+<Section title={c.title} intro={c.intro} titleAs="h1">
+  <div class="grid gap-10 lg:grid-cols-2 max-w-4xl">
+    <div class="surface rounded-xl p-6 sm:p-8">
+      {CONTACT_FORM_ENDPOINT ? (
+        <ContactForm
+          client:load
+          endpoint={CONTACT_FORM_ENDPOINT}
+          accessKey={CONTACT_FORM_ACCESS_KEY || undefined}
+          labels={{
+            name: c.formName,
+            email: c.formEmail,
+            message: c.formMessage,
+            submit: c.formSubmit,
+            success: c.formSuccess,
+            error: c.formError,
+          }}
+        />
+      ) : (
+        <p class="text-sm text-muted">{c.formDisabled}</p>
+      )}
+    </div>
+
+    <div>
+      <h2 class="font-tech text-xs uppercase tracking-wide text-accent">{c.channelsTitle}</h2>
+      <ul class="mt-4 space-y-3 text-sm">
+        <li>
+          <a class="hover:text-accent" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+        </li>
+        <li>
+          <a class="hover:text-accent" href={whatsappLink()} target="_blank" rel="noopener noreferrer">WhatsApp — {CONTACT.whatsappDisplay}</a>
+        </li>
+        <li>
+          <a class="hover:text-accent" href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </li>
+        <li>
+          <a class="hover:text-accent" href={CONTACT.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        </li>
+      </ul>
+      <p class="mt-4 text-sm text-muted font-tech">{location}</p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        {SCHEDULING_URL && (
+          <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            {c.scheduleCta}
+          </a>
+        )}
+        <a href={RESUME_PATH[lang]} class="btn btn-secondary">{c.resumeCta}</a>
+      </div>
+    </div>
+  </div>
+</Section>

@@ -1,0 +1,67 @@
+---
+import type { Locale } from '../../site.config';
+import { getDictionary } from '../../i18n';
+import Section from '../Section.astro';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const ex = dict.experience;
+const e = ex.entry;
+---
+
+<Section title={ex.title} intro={ex.intro} titleAs="h1">
+  <div class="max-w-3xl">
+    <div class="surface rounded-xl p-6 sm:p-8">
+      <div class="flex flex-wrap items-baseline justify-between gap-2">
+        <h2 class="font-tech text-xl font-bold">{e.company}</h2>
+        <span class="text-sm text-muted">{e.period}</span>
+      </div>
+      <p class="mt-2 text-sm text-muted">{e.summary}</p>
+
+      <ol class="mt-6 space-y-2">
+        {e.roles.map((role, i) => (
+          <li class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full shrink-0" style={i === e.roles.length - 1 ? 'background: var(--accent)' : 'background: var(--border)'}></span>
+            <span class:list={[i === e.roles.length - 1 ? 'font-medium text-accent' : 'text-muted']}>{role}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <div class="mt-8">
+      <h3 class="font-tech text-xs uppercase tracking-wide text-accent">{ex.activitiesTitle}</h3>
+      <ul class="mt-3 grid gap-2 sm:grid-cols-2 text-sm text-muted">
+        {e.activities.map((activity) => (
+          <li class="flex gap-2">
+            <span class="text-accent shrink-0" aria-hidden="true">▹</span>
+            {activity}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mt-8">
+      <h3 class="font-tech text-xs uppercase tracking-wide text-accent">{ex.internalProjectsTitle}</h3>
+      <ul class="mt-3 space-y-2 text-sm text-muted">
+        {e.internalProjects.map((item) => (
+          <li class="flex gap-2">
+            <span class="text-accent shrink-0" aria-hidden="true">▹</span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mt-8 surface border-l-4 border-l-accent rounded-lg p-5">
+      <h3 class="font-tech text-xs uppercase tracking-wide text-accent">{ex.highlightTitle}</h3>
+      <p class="mt-2 text-sm">{e.highlight}</p>
+    </div>
+
+    <p class="mt-6 text-sm text-muted">{e.mentoring}</p>
+    <p class="mt-2 text-xs text-muted font-tech">{e.sector}</p>
+  </div>
+</Section>

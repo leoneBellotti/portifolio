@@ -1,0 +1,24 @@
+---
+interface Props {
+  title?: string;
+  intro?: string;
+  id?: string;
+  class?: string;
+  titleAs?: 'h1' | 'h2';
+}
+
+const { title, intro, id, class: className = '', titleAs = 'h2' } = Astro.props;
+const TitleTag = titleAs;
+---
+
+<section id={id} class:list={['py-16 sm:py-20', className]}>
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    {title && (
+      <div class="max-w-2xl mb-10">
+        <TitleTag class="text-2xl sm:text-3xl font-bold tracking-tight">{title}</TitleTag>
+        {intro && <p class="mt-3 text-muted">{intro}</p>}
+      </div>
+    )}
+    <slot />
+  </div>
+</section>
