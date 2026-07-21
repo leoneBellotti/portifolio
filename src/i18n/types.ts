@@ -28,6 +28,7 @@ export interface QuickProject {
   description: string;
   tech: string[];
   repo: string;
+  live?: string;
 }
 
 export interface ExperienceEntry {

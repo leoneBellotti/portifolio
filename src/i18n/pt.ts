@@ -255,6 +255,7 @@ export const pt: Dictionary = {
       description: 'Site que usa as APIs do Cartola FC (Globo.com) para gerir dados e estatísticas de jogadores do Campeonato Brasileiro.',
       tech: ['Vue'],
       repo: 'https://github.com/leoneBellotti/cartoola',
+      live: 'https://cartoola.onrender.com/',
     },
   },
   experience: {

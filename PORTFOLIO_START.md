@@ -343,7 +343,7 @@ Navegação e CTAs devem reforçar a ação principal: explorar projetos/compet�
 
 - **Domínio**: ainda não registrado — nome final pendente (deve ser parametrizado no código).
 - **Foto profissional**: não existe — definir alternativa visual definitiva na fase de layout.
-- **Currículo em PDF**: precisa ser criado do zero a partir do conteúdo final do site (não é o PDF do LinkedIn usado nesta entrevista).
+- ~~**Currículo em PDF**: precisa ser criado do zero a partir do conteúdo final do site (não é o PDF do LinkedIn usado nesta entrevista).~~ Feito — gerado a partir do conteúdo do site via `scripts/generate-resume.mjs` (`npm run generate:resume`), arquivos em `public/cv/`.
 - **Screenshots/imagens finais** dos projetos (AtendePix, 3D&T Online, Sakkamusuko) ainda precisam ser selecionadas.
 - **Paleta de cores exata**: só a vibe "tech/dev/gamer" foi definida — cores específicas ficam para a fase de layout.
 - **Cartoola**: definir se vira um estudo de caso completo ou aparece apenas como item rápido na lista de projetos.

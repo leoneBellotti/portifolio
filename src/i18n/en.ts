@@ -251,6 +251,7 @@ export const en: Dictionary = {
       description: "A site using Cartola FC's (Globo.com) APIs to manage player data and statistics from the Brazilian football championship.",
       tech: ['Vue'],
       repo: 'https://github.com/leoneBellotti/cartoola',
+      live: 'https://cartoola.onrender.com/',
     },
   },
   experience: {
