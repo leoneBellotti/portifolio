@@ -32,7 +32,7 @@ Este arquivo é a fonte principal de verdade para o desenvolvimento do site. Dec
 > Desenvolvedor sênior com mais de 15 anos de experiência em todo o ciclo de vida de sistemas: requisitos, banco de dados, backend, frontend, infraestrutura e segurança. Cria produtos digitais próprios do zero e atua na modernização de sistemas legados críticos.
 
 **Resumo completo**:
-> Atuo há mais de 15 anos com desenvolvimento de software, participando de todo o ciclo de criação, evolução e sustentação de sistemas: levantamento de requisitos, análise de regras de negócio, definição de soluções, modelagem de bancos de dados, desenvolvimento frontend e backend, infraestrutura, segurança, publicação e manutenção. Minha trajetória combina experiência técnica, visão de produto e atuação em ambientes complexos — sistemas corporativos, aplicações legadas, APIs, integrações, servidores físicos e ambientes em nuvem. Além da experiência corporativa, também crio produtos próprios: do AtendePix, um SaaS que desenvolvi sozinho do zero, a jogos web como o 3D&T Online e o Sakkamusuko, atualmente em desenvolvimento. Uso ferramentas e agentes de inteligência artificial como apoio no dia a dia — análise de código, documentação, refatoração e testes — sempre com revisão humana e responsabilidade técnica sobre as decisões implementadas.
+> Atuo há mais de 15 anos com desenvolvimento de software, participando de todo o ciclo de criação, evolução e sustentação de sistemas: levantamento de requisitos, análise de regras de negócio, definição de soluções, modelagem de bancos de dados, desenvolvimento frontend e backend, infraestrutura, segurança, publicação e manutenção. Minha trajetória combina experiência técnica, visão de produto e atuação em ambientes complexos — sistemas corporativos, aplicações legadas, APIs, integrações, servidores físicos e ambientes em nuvem. Além da experiência corporativa, também crio produtos próprios: do AtendePix, um SaaS que desenvolvi sozinho do zero, a jogos web como o 3D&T Online e o Sakkamusuko, publicado e em evolução contínua. Uso ferramentas e agentes de inteligência artificial como apoio no dia a dia — análise de código, documentação, refatoração e testes — sempre com revisão humana e responsabilidade técnica sobre as decisões implementadas.
 
 **Diferenciais**:
 - Atua do levantamento de requisitos até produção e sustentação — não só escreve código.
@@ -139,20 +139,22 @@ Contratação: **freelancer e consultoria** (sem CLT/PJ fixo), **100% remoto**, 
 - **Links**: [3dtonline.com.br](https://3dtonline.com.br) · repositório público no GitHub ("3dt").
 - **Restrições de divulgação**: deixar explícito, de forma visível no case, que é um **projeto de fã não-oficial**, com crédito ao sistema original 3D&T — não apresentar como produto autoral independente.
 
-### Sakkamusuko (nome provisório — pode mudar)
+### Sakkamusuko
 
-- **Descrição curta**: jogo web de formação, coleção e evolução de atletas de futebol fictícios, em desenvolvimento no tempo livre.
-- **Conceito**: o jogador assume o papel de treinador de uma academia/clube, obtém atletas e cartas de suporte, treina para criar versões evoluídas, monta uma escalação e disputa partidas simuladas contra bots.
+- **Descrição curta**: jogo web de futebol e estratégia, com coleção de atletas fictícios, desenvolvimento de carreiras e partidas simuladas PvE e PvP, disponível no navegador.
+- **Conceito**: o jogador monta um clube, coleciona atletas e cartas de suporte, desenvolve carreiras por turnos com treinos, eventos e habilidades, organiza escalações e disputa partidas contra equipes do jogo ou outros clubes.
 - **Cuidado com propriedade intelectual**: o projeto tem identidade própria — nomes, artes, interface e narrativa originais; países/clubes/atletas fictícios ou tratados de forma genérica; regras, atributos e motor de partida próprios. Não usa nomes, personagens ou IP de terceiros como se fossem parte do produto.
-- **Escopo do MVP**: 8 países, 144 atletas, 144 cartas de suporte, formações 11x11 e 5x5; treino, escalação, partidas, missões e recompensas integrados; **sem multiplayer real e sem monetização no momento**.
+- **Funcionalidades atuais**: cadastro e login Google, coleção de atletas e suportes, mercado com banners e evolução de duplicatas, formações 11x11 e 5x5 com capitão e táticas, carreiras por turnos, campanha PvE com objetivos, partidas PvP simuladas entre clubes, histórico, missões e recompensas; administração de catálogos e auditoria. PvP não deve ser descrito como multiplayer em tempo real. Quantidades de catálogo não serão divulgadas sem confirmação dos dados em produção.
 - **Minha atuação**: criado sozinho, incluindo o motor de simulação de partidas, o sistema de progressão/treino, a criação das imagens dos atletas e a criação do sistema de habilidades do zero.
-- **Tecnologias**: monorepo (pnpm + Turborepo + TypeScript); frontend em React + Vite + Phaser 3 (simulação de partida em câmera 2.5D, com sombra dinâmica, minimapa e HUD) + TanStack Query + Zustand + React Hook Form + Zod; backend em NestJS + PostgreSQL + Prisma, com autenticação própria e login Google.
-- **Desafios técnicos**: simulação e renderização da simulação de partidas, calibração de eventos e escolhas de treino, criação das imagens dos atletas e criação do sistema de habilidades — tudo construído do zero.
-- **Estado atual**: MVP completo e validado localmente por testes automatizados; **ainda não publicado** (deploy público é a próxima etapa planejada).
+- **Tecnologias**: monorepo pnpm + Turborepo + TypeScript; frontend React 19 + Vite + Phaser 4 + Recharts; API NestJS + Prisma + MongoDB, com autenticação própria e login Google; Firebase Hosting para landing e jogo, com pipeline GitHub Actions.
+- **Desafios técnicos**: motor de simulação calculado na API e reproduzido em Phaser, calibração de táticas e habilidades, progressão das carreiras, prevenção de partidas/recompensas duplicadas, criação de artes próprias e administração auditável.
+- **Estado atual**: publicado e em evolução contínua. Landing e jogo responderam HTTP 200 em 11/10/2026; isso confirma a publicação da interface, sem afirmar números de jogadores ou disponibilidade de todas as operações da API.
+- **Links**: [sakkamusuko.com](https://sakkamusuko.com/) · [jogar](https://sakkamusuko.com/game/) · [repositório](https://github.com/leoneBellotti/Sakkamusuko).
 - **Público-alvo**: genérico, sem nicho definido.
-- **Monetização**: não é intenção divulgar planos de monetização no portfólio por enquanto — o MVP atual não tem monetização.
-- **Mídias disponíveis**: ilustrações de atletas fictícios já produzidas (organizadas por país).
-- **Restrições de divulgação**: apresentar claramente como projeto **em desenvolvimento**, não publicado — nunca como produto já disponível ao público.
+- **Monetização**: manter planos, preços e detalhes comerciais fora do portfólio.
+- **Mídias disponíveis**: artes próprias e imagem de divulgação da landing, reutilizada no case com descrição em português e inglês.
+- **Restrições de divulgação**: apresentar como jogo publicado e em evolução, com identidade própria; não afirmar multiplayer em tempo real, quantidade de jogadores ou planos comerciais.
+- **Atualização do portfólio (11/10/2026)**: sincronizar case, cards, página Sobre e currículos em português e inglês com o README, dependências e schema atuais em `E:/Sakkamusuko`, além da verificação pública da landing e `/game/`.
 
 ### Cartoola (projeto adicional)
 
@@ -244,7 +246,7 @@ Navegação e CTAs devem reforçar a ação principal: explorar projetos/compet�
 **Subtítulo**: Especialista Técnico Sênior — Sistemas, APIs, Cloud e Modernização de Legados
 
 **Sobre mim (rascunho)**:
-> Trabalho com desenvolvimento de software há mais de 15 anos, participando do ciclo completo de criação e evolução de sistemas: levantamento de requisitos, modelagem de banco de dados, backend, frontend, infraestrutura, segurança e sustentação. Atuei tanto em sistemas corporativos críticos quanto na criação dos meus próprios produtos — do AtendePix, um SaaS que desenvolvi sozinho do zero, a jogos web como o 3D&T Online e o Sakkamusuko, atualmente em desenvolvimento. Gosto de entender o problema antes da tecnologia, e de acompanhar uma solução da ideia até a produção.
+> Trabalho com desenvolvimento de software há mais de 15 anos, participando do ciclo completo de criação e evolução de sistemas: levantamento de requisitos, modelagem de banco de dados, backend, frontend, infraestrutura, segurança e sustentação. Atuei tanto em sistemas corporativos críticos quanto na criação dos meus próprios produtos — do AtendePix, um SaaS que desenvolvi sozinho do zero, a jogos web como o 3D&T Online e o Sakkamusuko, publicado e em evolução contínua. Gosto de entender o problema antes da tecnologia, e de acompanhar uma solução da ideia até a produção.
 
 **Serviços (chamada de seção)**:
 > Do diagnóstico técnico à sustentação: veja como posso ajudar seu sistema ou produto a sair do papel, ganhar segurança ou continuar de pé.
@@ -314,7 +316,7 @@ Navegação e CTAs devem reforçar a ação principal: explorar projetos/compet�
 - Não publicar credenciais, variáveis de ambiente, nomes internos de sistemas ou arquitetura privada de nenhum projeto corporativo.
 - Anonimizar os projetos de pediatria e de automação B2B — sem nome de cliente.
 - Apresentar o 3D&T Online explicitamente como **projeto de fã não-oficial**, com crédito ao sistema original 3D&T (Jambô Editora / Marcus Lyra) — nunca como produto autoral independente.
-- Apresentar o Sakkamusuko como **projeto em desenvolvimento, não publicado** — nunca sugerir que já está disponível ao público ou que tem monetização ativa.
+- Apresentar o Sakkamusuko como **publicado e em evolução contínua**, conforme verificação de 11/10/2026; não divulgar planos comerciais nem afirmar multiplayer em tempo real.
 - Não afirmar que a correção de vulnerabilidades nas APIs do registrocivil.org.br está necessariamente refletida no ambiente de produção atual, a menos que reconfirmado.
 - Não expor endereço residencial — apenas a região (Santo André, São Paulo) para fins de "atendimento remoto a partir de".
 - Proteger o formulário de contato contra spam (honeypot ou captcha leve).

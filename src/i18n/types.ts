@@ -20,6 +20,7 @@ export interface ProjectEntry {
   status: string;
   statusBadge: string;
   disclaimer?: string;
+  image?: { src: string; alt: string; caption: string; width: number; height: number };
   links: { live?: string; repo?: string };
 }
 

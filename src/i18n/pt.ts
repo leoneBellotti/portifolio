@@ -88,9 +88,9 @@ export const pt: Dictionary = {
   about: {
     title: 'Sobre',
     intro:
-      'Trabalho com desenvolvimento de software há mais de 15 anos, participando do ciclo completo de criação e evolução de sistemas: levantamento de requisitos, modelagem de banco de dados, backend, frontend, infraestrutura, segurança e sustentação. Atuei tanto em sistemas corporativos críticos quanto na criação dos meus próprios produtos — do AtendePix, um SaaS que desenvolvi sozinho do zero, a jogos web como o 3D&T Online e o Sakkamusuko, atualmente em desenvolvimento. Gosto de entender o problema antes da tecnologia, e de acompanhar uma solução da ideia até a produção.',
+      'Trabalho com desenvolvimento de software há mais de 15 anos, participando do ciclo completo de criação e evolução de sistemas: levantamento de requisitos, modelagem de banco de dados, backend, frontend, infraestrutura, segurança e sustentação. Atuei tanto em sistemas corporativos críticos quanto na criação dos meus próprios produtos — do AtendePix, um SaaS que desenvolvi sozinho do zero, a jogos web como o 3D&T Online e o Sakkamusuko, publicado e em evolução contínua. Gosto de entender o problema antes da tecnologia, e de acompanhar uma solução da ideia até a produção.',
     fullSummary:
-      'Atuo há mais de 15 anos com desenvolvimento de software, participando de todo o ciclo de criação, evolução e sustentação de sistemas: levantamento de requisitos, análise de regras de negócio, definição de soluções, modelagem de bancos de dados, desenvolvimento frontend e backend, infraestrutura, segurança, publicação e manutenção. Minha trajetória combina experiência técnica, visão de produto e atuação em ambientes complexos — sistemas corporativos, aplicações legadas, APIs, integrações, servidores físicos e ambientes em nuvem. Além da experiência corporativa, também crio produtos próprios: do AtendePix, um SaaS que desenvolvi sozinho do zero, a jogos web como o 3D&T Online e o Sakkamusuko, atualmente em desenvolvimento. Uso ferramentas e agentes de inteligência artificial como apoio no dia a dia — análise de código, documentação, refatoração e testes — sempre com revisão humana e responsabilidade técnica sobre as decisões implementadas.',
+      'Atuo há mais de 15 anos com desenvolvimento de software, participando de todo o ciclo de criação, evolução e sustentação de sistemas: levantamento de requisitos, análise de regras de negócio, definição de soluções, modelagem de bancos de dados, desenvolvimento frontend e backend, infraestrutura, segurança, publicação e manutenção. Minha trajetória combina experiência técnica, visão de produto e atuação em ambientes complexos — sistemas corporativos, aplicações legadas, APIs, integrações, servidores físicos e ambientes em nuvem. Além da experiência corporativa, também crio produtos próprios: do AtendePix, um SaaS que desenvolvi sozinho do zero, a jogos web como o 3D&T Online e o Sakkamusuko, publicado e em evolução contínua. Uso ferramentas e agentes de inteligência artificial como apoio no dia a dia — análise de código, documentação, refatoração e testes — sempre com revisão humana e responsabilidade técnica sobre as decisões implementadas.',
     diffsTitle: 'Diferenciais',
     diffs: [
       'Atua do levantamento de requisitos até produção e sustentação — não só escreve código.',
@@ -228,26 +228,51 @@ export const pt: Dictionary = {
         links: { live: 'https://3dtonline.com.br', repo: 'https://github.com/leoneBellotti/3dt' },
       },
       {
-        slug: 'sakkamusuko',
-        name: 'Sakkamusuko',
-        tagline: 'Jogo web de formação, coleção e evolução de atletas de futebol fictícios (nome provisório — pode mudar).',
-        problem: 'Um jogo de gestão esportiva onde o jogador assume o papel de treinador de uma academia/clube, forma atletas e monta uma escalação competitiva.',
-        solution: 'O jogador obtém atletas e cartas de suporte, treina para criar versões evoluídas, monta uma escalação e disputa partidas simuladas contra bots. MVP com 8 países, 144 atletas, 144 cartas de suporte e formações 11x11 e 5x5, com treino, escalação, partidas, missões e recompensas integrados. Identidade própria: nomes, artes, interface e narrativa originais, sem uso de IP de terceiros.',
-        features: [
-          'Formação e evolução de atletas fictícios',
-          'Cartas de suporte colecionáveis',
-          'Formações 11x11 e 5x5',
-          'Simulação de partidas contra bots',
-          'Sistema de treino, missões e recompensas',
-          'Sem multiplayer real e sem monetização no momento',
+        "slug": "sakkamusuko",
+        "name": "Sakkamusuko",
+        "tagline": "Jogo de futebol e estratégia no navegador: monte seu clube, colecione atletas fictícios e desenvolva carreiras.",
+        "problem": "Unir coleção de atletas, formação de elenco e desenvolvimento de carreiras em um jogo de futebol acessível pelo navegador, com decisões táticas que influenciam as partidas.",
+        "solution": "O jogador cria seu clube, obtém atletas e cartas de suporte e desenvolve carreiras por turnos com treinos, eventos e habilidades. Organiza formações 5x5 ou 11x11, escolhe capitão e táticas e enfrenta equipes do jogo na campanha PvE ou outros clubes em partidas PvP simuladas. A API calcula as partidas, e o navegador reproduz os resultados com Phaser. Nomes, artes, interface, narrativa e regras têm identidade própria.",
+        "features": [
+          "Cadastro com email e senha e login Google",
+          "Coleção de atletas e suportes, banners e evolução de cartas duplicadas",
+          "Carreiras por turnos com treinos, eventos, habilidades e veteranos",
+          "Formações 5x5 e 11x11, capitão, táticas e presets de escalação",
+          "Campanha PvE com objetivos e partidas PvP simuladas entre clubes",
+          "Reprodução visual das partidas, estatísticas e histórico",
+          "Stamina, moedas do jogo, missões e recompensas",
+          "Painel administrativo com gestão de catálogos e auditoria"
         ],
-        role: 'Criado sozinho, incluindo o motor de simulação de partidas, o sistema de progressão/treino, a criação das imagens dos atletas e a criação do sistema de habilidades do zero.',
-        tech: ['React', 'Vite', 'Phaser 3', 'TanStack Query', 'Zustand', 'React Hook Form', 'Zod', 'NestJS', 'PostgreSQL', 'Prisma', 'Turborepo', 'pnpm'],
-        challenges: 'Simulação e renderização da partida em câmera 2.5D (sombra dinâmica, minimapa e HUD), calibração de eventos e escolhas de treino, criação das imagens dos atletas e do sistema de habilidades — tudo construído do zero.',
-        status: 'MVP completo e validado localmente por testes automatizados. Ainda não publicado — o deploy público é a próxima etapa planejada.',
-        statusBadge: 'Em desenvolvimento — não publicado',
-        disclaimer: 'Projeto em desenvolvimento, ainda não publicado — não é um produto disponível ao público no momento.',
-        links: { repo: 'https://github.com/leoneBellotti' },
+        "role": "Criado sozinho, do conceito à publicação, com apoio de ferramentas de IA: produto, frontend, API, banco de dados, motor de simulação, progressão das carreiras, habilidades, artes dos atletas e infraestrutura.",
+        "tech": [
+          "TypeScript",
+          "React 19",
+          "Vite",
+          "Phaser 4",
+          "NestJS",
+          "MongoDB",
+          "Prisma",
+          "Recharts",
+          "Turborepo",
+          "pnpm",
+          "Firebase Hosting",
+          "GitHub Actions"
+        ],
+        "challenges": "Calcular partidas na API e reproduzi-las em Phaser, calibrar táticas e habilidades, integrar treino e progressão às carreiras e evitar partidas e recompensas duplicadas. A administração inclui auditoria de alterações e controle de acesso.",
+        "status": "Publicado em sakkamusuko.com, com landing e jogo acessíveis no navegador. O projeto continua evoluindo, com testes automatizados, checagem de tipos e build na CI, e publicação do frontend no Firebase Hosting via GitHub Actions.",
+        "statusBadge": "Publicado — em evolução",
+        "disclaimer": "Universo de futebol fictício com identidade própria. As partidas PvP são simulações entre clubes; não envolvem controle de atletas em tempo real.",
+        "image": {
+          "src": "/images/projects/sakkamusuko.jpg",
+          "alt": "Arte de divulgação do Sakkamusuko com estádio de futebol e o lema Seu clube. Sua história.",
+          "caption": "Arte de divulgação do jogo publicado em sakkamusuko.com.",
+          "width": 1200,
+          "height": 630
+        },
+        "links": {
+          "live": "https://sakkamusuko.com/",
+          "repo": "https://github.com/leoneBellotti/Sakkamusuko"
+        }
       },
     ],
     cartoola: {

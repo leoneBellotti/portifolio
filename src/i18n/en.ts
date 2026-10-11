@@ -84,9 +84,9 @@ export const en: Dictionary = {
   about: {
     title: 'About',
     intro:
-      "I've worked in software development for more than 15 years, taking part in the full cycle of creating and evolving systems: requirements gathering, database modeling, backend, frontend, infrastructure, security and support. I've worked on critical corporate systems as well as building my own products — from AtendePix, a SaaS I built alone from scratch, to web games like 3D&T Online and Sakkamusuko, currently in development. I like understanding the problem before the technology, and following a solution from idea through to production.",
+      "I've worked in software development for more than 15 years, taking part in the full cycle of creating and evolving systems: requirements gathering, database modeling, backend, frontend, infrastructure, security and support. I've worked on critical corporate systems as well as building my own products — from AtendePix, a SaaS I built alone from scratch, to web games like 3D&T Online and Sakkamusuko, published and under ongoing development. I like understanding the problem before the technology, and following a solution from idea through to production.",
     fullSummary:
-      "I've worked in software development for more than 15 years, taking part in the full cycle of creating, evolving and supporting systems: requirements gathering, business rule analysis, solution design, database modeling, frontend and backend development, infrastructure, security, deployment and maintenance. My background combines technical experience, product thinking and work in complex environments — corporate systems, legacy applications, APIs, integrations, physical servers and cloud environments. Beyond corporate experience, I also build my own products: from AtendePix, a SaaS I built alone from scratch, to web games like 3D&T Online and Sakkamusuko, currently in development. I use AI tools and agents as part of my daily workflow — code analysis, documentation, refactoring and testing — always with human review and technical accountability over what gets implemented.",
+      "I've worked in software development for more than 15 years, taking part in the full cycle of creating, evolving and supporting systems: requirements gathering, business rule analysis, solution design, database modeling, frontend and backend development, infrastructure, security, deployment and maintenance. My background combines technical experience, product thinking and work in complex environments — corporate systems, legacy applications, APIs, integrations, physical servers and cloud environments. Beyond corporate experience, I also build my own products: from AtendePix, a SaaS I built alone from scratch, to web games like 3D&T Online and Sakkamusuko, published and under ongoing development. I use AI tools and agents as part of my daily workflow — code analysis, documentation, refactoring and testing — always with human review and technical accountability over what gets implemented.",
     diffsTitle: 'Differentiators',
     diffs: [
       'Works from requirements gathering all the way to production and support — not just writing code.',
@@ -224,26 +224,51 @@ export const en: Dictionary = {
         links: { live: 'https://3dtonline.com.br', repo: 'https://github.com/leoneBellotti/3dt' },
       },
       {
-        slug: 'sakkamusuko',
-        name: 'Sakkamusuko',
-        tagline: 'A web game about training, collecting and evolving fictional football athletes (working name — subject to change).',
-        problem: 'A sports management game where the player takes on the role of a club/academy coach, develops athletes and builds a competitive lineup.',
-        solution: 'The player acquires athletes and support cards, trains them into evolved versions, builds a lineup and plays simulated matches against bots. The MVP covers 8 countries, 144 athletes, 144 support cards, and 11-a-side and 5-a-side formations, with training, squad building, matches, missions and rewards all integrated. Original identity: original names, art, interface and narrative, with no third-party IP used.',
-        features: [
-          'Training and evolving fictional athletes',
-          'Collectible support cards',
-          '11-a-side and 5-a-side formations',
-          'Simulated matches against bots',
-          'Training, missions and rewards system',
-          'No real multiplayer and no monetization at this time',
+        "slug": "sakkamusuko",
+        "name": "Sakkamusuko",
+        "tagline": "Football strategy in your browser: build your club, collect fictional athletes and develop their careers.",
+        "problem": "Bring athlete collection, squad building and career development together in a browser-based football game, with tactical decisions that influence matches.",
+        "solution": "Players create a club, acquire athletes and support cards and develop turn-based careers through training, events and skills. They organize 5-a-side or 11-a-side lineups, choose a captain and tactics and face game teams in the PvE campaign or other clubs in simulated PvP matches. The API calculates matches, and the browser plays back the results with Phaser. Names, artwork, interface, narrative and rules have their own identity.",
+        "features": [
+          "Email and password registration and Google sign-in",
+          "Athlete and support collection, banners and duplicate card evolution",
+          "Turn-based careers with training, events, skills and veterans",
+          "5-a-side and 11-a-side formations, captains, tactics and lineup presets",
+          "PvE campaign with objectives and simulated PvP matches between clubs",
+          "Visual match playback, statistics and history",
+          "Stamina, in-game currencies, missions and rewards",
+          "Admin dashboard with catalog management and audit logs"
         ],
-        role: 'Built alone, including the match simulation engine, the progression/training system, the athlete artwork and the skills system, all from scratch.',
-        tech: ['React', 'Vite', 'Phaser 3', 'TanStack Query', 'Zustand', 'React Hook Form', 'Zod', 'NestJS', 'PostgreSQL', 'Prisma', 'Turborepo', 'pnpm'],
-        challenges: 'Simulating and rendering matches in a 2.5D camera view (dynamic shadows, minimap and HUD), calibrating training events and choices, creating the athlete artwork and the skills system — all built from scratch.',
-        status: 'MVP complete and validated locally with automated tests. Not published yet — public deployment is the next planned step.',
-        statusBadge: 'In development — not published',
-        disclaimer: "A project still in development, not yet published — not currently available to the public.",
-        links: { repo: 'https://github.com/leoneBellotti' },
+        "role": "Built alone from concept to publication with AI tooling support: product, frontend, API, database, match simulation engine, career progression, skills, athlete artwork and infrastructure.",
+        "tech": [
+          "TypeScript",
+          "React 19",
+          "Vite",
+          "Phaser 4",
+          "NestJS",
+          "MongoDB",
+          "Prisma",
+          "Recharts",
+          "Turborepo",
+          "pnpm",
+          "Firebase Hosting",
+          "GitHub Actions"
+        ],
+        "challenges": "Calculating matches in the API and playing them back with Phaser, calibrating tactics and skills, connecting training and progression to careers and preventing duplicate matches and rewards. Administration includes change auditing and access control.",
+        "status": "Published at sakkamusuko.com, with a landing page and game accessible in the browser. Development continues, with automated tests, type checking and builds in CI, and frontend deployment to Firebase Hosting through GitHub Actions.",
+        "statusBadge": "Published — ongoing development",
+        "disclaimer": "A fictional football universe with its own identity. PvP matches are simulations between clubs; they do not involve real-time athlete control.",
+        "image": {
+          "src": "/images/projects/sakkamusuko.jpg",
+          "alt": "Sakkamusuko promotional artwork showing a football stadium and the Portuguese motto Your club. Your story.",
+          "caption": "Promotional artwork for the game published at sakkamusuko.com.",
+          "width": 1200,
+          "height": 630
+        },
+        "links": {
+          "live": "https://sakkamusuko.com/",
+          "repo": "https://github.com/leoneBellotti/Sakkamusuko"
+        }
       },
     ],
     cartoola: {

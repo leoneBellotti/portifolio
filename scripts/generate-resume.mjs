@@ -170,7 +170,7 @@ const pt = {
   projects: [
     { name: 'AtendePix', tagline: 'Mini SaaS para pequenos negócios transformarem atendimentos em clientes, orçamentos, cobranças Pix e controle financeiro. Criado sozinho, do zero, até a produção.' },
     { name: '3D&T Online', tagline: 'Ferramenta web de apoio ao sistema de RPG de mesa 3D&T Alpha — fichas, catálogos de regras e aventuras narrativas com IA mestre. Finalizado e em produção.' },
-    { name: 'Sakkamusuko', tagline: 'Jogo web de formação, coleção e evolução de atletas de futebol fictícios, incluindo motor de simulação de partidas próprio. MVP completo.' },
+    { name: 'Sakkamusuko', tagline: 'Jogo web de formação, coleção e evolução de atletas de futebol fictícios, com carreiras, campanha PvE, PvP simulado e motor de partidas próprio. Publicado em sakkamusuko.com.' },
   ],
   education: 'Tecnologia em Sistemas de Informação — Universidade Paulista (não concluída).',
   skills: [
@@ -221,7 +221,7 @@ const en = {
   projects: [
     { name: 'AtendePix', tagline: 'A mini SaaS for small businesses to turn inbound conversations into customers, quotes, Pix charges and financial control. Built alone, from scratch to production.' },
     { name: '3D&T Online', tagline: 'A web companion tool for the 3D&T Alpha tabletop RPG — character sheets, rulebook catalogs and AI-driven narrative adventures. Finished and in production.' },
-    { name: 'Sakkamusuko', tagline: 'A web game about training, collecting and evolving fictional football athletes, including a custom match simulation engine. MVP complete.' },
+    { name: 'Sakkamusuko', tagline: 'A web game about training, collecting and evolving fictional football athletes, with careers, a PvE campaign, simulated PvP and a custom match engine. Published at sakkamusuko.com.' },
   ],
   education: 'Information Systems Technology — Universidade Paulista (not completed).',
   skills: [

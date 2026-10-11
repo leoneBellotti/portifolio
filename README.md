@@ -42,4 +42,4 @@ Ver seção 15 do `PORTFOLIO_START.md` para a lista completa. Resumo do que falt
 - **Currículo em PDF**: os botões apontam para `/cv/leone-bellotti-cv-pt.pdf` e `-en.pdf`, mas os arquivos ainda não existem em `public/cv/`.
 - **WhatsApp**: confirmar se deve ser link direto (`wa.me`, já implementado) ou só texto.
 - **Imagem de OG/social**: nenhuma foi criada ainda; as tags `og:image`/`twitter:image` só aparecem quando uma é passada explicitamente para `BaseLayout`.
-- **Screenshots dos projetos**: AtendePix, 3D&T Online e Sakkamusuko ainda não têm imagens reais nas páginas de case.
+- **Imagens dos projetos**: Sakkamusuko tem arte de divulgação no case e links para o jogo publicado. Screenshots de gameplay e imagens de AtendePix e 3D&T Online continuam pendentes.
