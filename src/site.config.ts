@@ -2,11 +2,9 @@
 // Change values here to update them everywhere on the site (domain, contacts, etc).
 
 /**
- * Domain is NOT registered yet (see PORTFOLIO_START.md, section 15 - Pendências).
- * Placeholder value below so canonical URLs / OG tags / sitemap all build correctly.
- * Swap this single value once the real domain is registered.
+ * Confirmed Firebase Hosting address. Update when a custom domain is connected.
  */
-export const SITE_URL = 'https://leonebellotti.com.br';
+export const SITE_URL = 'https://leone-bellotti.web.app';
 
 export const SITE_NAME = 'Leone Bellotti';
 

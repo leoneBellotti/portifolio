@@ -31,11 +31,15 @@ src/
 | `npm run build` | Build de produção em `./dist/` |
 | `npm run preview` | Preview do build de produção |
 
+## Publicação
+
+O portfólio está em https://leone-bellotti.web.app/, no Firebase Hosting (projeto/site `leone-bellotti`). Com a Firebase CLI instalada e autenticada, execute `npm run build` e depois `firebase deploy --only hosting --project leone-bellotti`. A configuração publica somente os arquivos estáticos de `dist/`.
+
 ## Pendências antes de publicar
 
 Ver seção 15 do `PORTFOLIO_START.md` para a lista completa. Resumo do que falta configurar em `src/site.config.ts` e correlatos:
 
-- **Domínio**: `SITE_URL` está com um placeholder (`leonebellotti.com.br`) — trocar quando o domínio for registrado.
+- **Domínio próprio**: `SITE_URL` usa o endereço Firebase confirmado (`leone-bellotti.web.app`) — trocar quando um domínio próprio for conectado.
 - **Formulário de contato**: `CONTACT_FORM_ENDPOINT` (e `CONTACT_FORM_ACCESS_KEY` se usar Web3Forms) estão vazios — o formulário fica desabilitado (mostra só os canais alternativos) até serem preenchidos.
 - **Agenda de reuniões**: `SCHEDULING_URL` vazio (Calendly/Cal.com).
 - **Analytics**: `CF_ANALYTICS_TOKEN` vazio (Cloudflare Web Analytics).

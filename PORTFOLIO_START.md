@@ -343,7 +343,8 @@ Navegação e CTAs devem reforçar a ação principal: explorar projetos/compet�
 
 ## 15. Pendências
 
-- **Domínio**: ainda não registrado — nome final pendente (deve ser parametrizado no código).
+- **Hospedagem confirmada (11/10/2026)**: Firebase Hosting, projeto e site `leone-bellotti`, endereço público `https://leone-bellotti.web.app/`. Usar esse endereço em `SITE_URL`, canonicals, Open Graph e sitemap. Publicar o build estático de `dist/` com `firebase deploy --only hosting --project leone-bellotti`; configuração versionada em `firebase.json` e `.firebaserc`.
+- **Domínio próprio**: ainda não registrado — enquanto isso, usar o endereço Firebase confirmado acima.
 - **Foto profissional**: não existe — definir alternativa visual definitiva na fase de layout.
 - ~~**Currículo em PDF**: precisa ser criado do zero a partir do conteúdo final do site (não é o PDF do LinkedIn usado nesta entrevista).~~ Feito — gerado a partir do conteúdo do site via `scripts/generate-resume.mjs` (`npm run generate:resume`), arquivos em `public/cv/`.
 - **Screenshots/imagens finais** dos projetos (AtendePix, 3D&T Online, Sakkamusuko) ainda precisam ser selecionadas.
